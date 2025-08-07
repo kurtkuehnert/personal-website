@@ -1,0 +1,15 @@
+{
+  "en": {
+    "name": "Kurt Kühnert",
+    "tagline": "Graphics and geospatial engineer focused on GPU-based large-scale terrain rendering.",
+    "cta_projects": "View Projects",
+    "cta_contact": "Contact"
+  },
+  "de": {
+    "name": "Kurt Kühnert",
+    "tagline": "Grafik- und Geospatial-Engineer mit Fokus auf GPU-basiertes großskaliges Terrain-Rendering.",
+    "cta_projects": "Projekte ansehen",
+    "cta_contact": "Kontakt"
+  }
+}
+

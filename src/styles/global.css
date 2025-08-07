@@ -1,0 +1,60 @@
+/* Tailwind base + dark theme tokens */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0e12;
+  --surface: #0f141a;
+  --text: #e6edf3;
+  --muted: #9aa7b5;
+  --accent: #5cc8ff;
+  --accent-warm: #ff7a59; /* warm orange from logo */
+}
+
+html, body { height: 100%; }
+body {
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(92,200,255,0.12), transparent 60%),
+    radial-gradient(900px 600px at 85% -15%, rgba(255,122,89,0.08), transparent 60%),
+    radial-gradient(700px 500px at 100% 10%, rgba(92,200,255,0.05), transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
+
+.link { @apply text-accent hover:brightness-110; }
+.btn { @apply inline-flex items-center justify-center h-10 px-4 rounded-lg border border-white/10 no-underline transition text-[color:var(--text)]; }
+.btn-primary { @apply bg-accent text-black font-semibold; }
+.card { @apply border border-white/10 rounded-xl bg-white/[.02] shadow-soft overflow-hidden transition; }
+.container { @apply max-w-[1040px] mx-auto px-6; }
+.header { @apply sticky top-0 z-50 border-b border-white/10 backdrop-blur bg-black/40; }
+
+/* Two-segment language toggle */
+.toggle { @apply inline-flex items-center rounded-lg overflow-hidden border border-white/10; }
+.toggle a { @apply px-3 py-2 text-sm no-underline text-[color:var(--muted)] hover:text-[color:var(--text)]; }
+.toggle a[aria-current="true"] { @apply bg-white/[.06] text-[color:var(--text)] font-semibold; }
+
+/* Legal prose */
+.legal { @apply space-y-4; }
+.legal h1 { @apply text-3xl font-bold; }
+.legal h2 { @apply text-xl mt-6 font-semibold text-[color:var(--muted)]; }
+.legal p, .legal li { @apply text-base leading-7; }
+.legal ul { @apply list-disc pl-6 space-y-1; }
+
+/* Utilities */
+.aspect-square { aspect-ratio: 1 / 1; }
+
+/* Section rhythm and heading gradient */
+.section { @apply py-10; }
+.section h2 { @apply text-xl font-semibold mb-3; }
+.heading-gradient { background: linear-gradient(90deg, var(--accent), var(--accent-warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Publication styling */
+.pub-card h4 { @apply text-base font-semibold; }
+.pub-card .meta { @apply text-muted text-sm; }
+.pub-card .doi { @apply text-sm; }
+
+/* Centered media helpers */
+.centered-media { @apply grid place-items-center; }
+.media-fit { @apply max-w-full max-h-full object-contain; }
+
