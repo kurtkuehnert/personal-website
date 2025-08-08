@@ -81,6 +81,21 @@ const content = getContent(lang);
                   title: lang === 'de' ? "Sachsen Render - Regionales Terrain-Rendering" : "Saxony Render - Regional terrain rendering"
                 }
               ]}
+              showAttributions={true}
+              attributions={{
+                en: [
+                  "Swiss terrain data: © swisstopo",
+                  "Earth imagery: Image courtesy of NASA's Earth Observatory",
+                  "Bathymetric data: GEBCO 2024 Grid",
+                  "Saxony geodata: GeoSN, dl-de/by-2-0"
+                ],
+                de: [
+                  "Schweizer Geländedaten: © swisstopo",
+                  "Erdbilder: Bild mit freundlicher Genehmigung von NASA's Earth Observatory",
+                  "Bathymetrische Daten: GEBCO 2024 Grid",
+                  "Sächsische Geodaten: GeoSN, dl-de/by-2-0"
+                ]
+              }}
             />
           </div>
         </div>
