@@ -65,19 +65,19 @@ export const prerender = true;
   <body class="min-h-screen flex flex-col">
     <header class="header">
       <div class="container header-content">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 sm:gap-4">
           <a href={lang === 'de' ? '/de' : '/en'} aria-label="Home" class="transition-transform duration-300 hover:scale-105">
-            <img src="/logo.png" alt="Kurt Kühnert Logo" width="56" height="56" class="rounded-full border-2 border-white/20 shadow-lg" />
+            <img src="/logo.png" alt="Kurt Kühnert Logo" width="48" height="48" class="sm:w-14 sm:h-14 rounded-full border-2 border-white/20 shadow-lg" />
           </a>
-          <a href={lang === 'de' ? '/de' : '/en'} class="header-name hover:opacity-80 transition-opacity duration-300">Kurt Kühnert</a>
+          <a href={lang === 'de' ? '/de' : '/en'} class="header-name hover:opacity-80 transition-opacity duration-300 hidden sm:block">Kurt Kühnert</a>
         </div>
-        <nav class="flex items-center gap-3">
+        <nav class="flex items-center gap-2 sm:gap-3">
           <a class="header-icon email" href="mailto:kurt@kuehnert.dev" title="Email" aria-label="Email"></a>
-          <a class="header-icon phone" href="tel:+49-172-7639811" title="Phone" aria-label="Phone"></a>
+          <a class="header-icon phone hidden xs:flex" href="tel:+49-172-7639811" title="Phone" aria-label="Phone"></a>
           <a class="header-icon linkedin" href="https://www.linkedin.com/in/kurtkuehnert/" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="LinkedIn"></a>
           <a class="header-icon github" href="https://github.com/kurtkuehnert" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub"></a>
-          <a class="header-icon youtube" href="https://www.youtube.com/@kurtkuehnert" target="_blank" rel="noreferrer" title="YouTube" aria-label="YouTube"></a>
-          <span class="mx-2 text-muted">·</span>
+          <a class="header-icon youtube hidden xs:flex" href="https://www.youtube.com/@kurtkuehnert" target="_blank" rel="noreferrer" title="YouTube" aria-label="YouTube"></a>
+          <span class="mx-1 sm:mx-2 text-muted hidden xs:inline">·</span>
           <span class="toggle">
             <a href="/en" aria-current={lang === 'en' ? 'true' : 'false'}>EN</a>
             <a href="/de" aria-current={lang === 'de' ? 'true' : 'false'}>DE</a>

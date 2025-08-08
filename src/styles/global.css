@@ -85,18 +85,18 @@ body {
   @apply gradient-bg text-black font-semibold;
 }
 .card { @apply border border-white/10 rounded-xl bg-white/[.02] shadow-soft overflow-hidden transition; }
-.container { @apply max-w-[1040px] mx-auto px-6; }
+.container { @apply max-w-[1040px] mx-auto px-4 sm:px-6; }
 .header { @apply sticky top-0 z-50 border-b border-white/10 backdrop-blur bg-black/40; }
 
-/* Header with name */
-.header-content { @apply flex items-center justify-between gap-4 py-4; }
+/* Header with name - mobile optimized */
+.header-content { @apply flex items-center justify-between gap-2 sm:gap-4 py-3 sm:py-4; }
 .header-name { 
-  @apply gradient-text text-xl font-semibold;
+  @apply gradient-text text-lg sm:text-xl font-semibold;
 }
 
-/* Two-segment language toggle with KK colors - darker variants */
+/* Two-segment language toggle with KK colors - mobile responsive */
 .toggle { @apply inline-flex items-center rounded-lg overflow-hidden border border-white/10; }
-.toggle a { @apply px-4 py-2 text-base no-underline text-[color:var(--muted)] hover:text-[color:var(--text)] transition-colors h-10 flex items-center justify-center; }
+.toggle a { @apply px-3 sm:px-4 py-2 text-sm sm:text-base no-underline text-[color:var(--muted)] hover:text-[color:var(--text)] transition-colors h-8 sm:h-10 flex items-center justify-center; }
 .toggle a[aria-current="true"] { @apply font-semibold; }
 .toggle a[href="/en"] { 
   @apply gradient-text;
@@ -127,11 +127,17 @@ body {
   @apply text-[color:#19D2B9];
 }
 
-/* Header icons with proper gradient implementation */
+/* Header icons with proper gradient implementation - mobile responsive */
 .header-icon {
   @apply transition-all duration-300 relative flex items-center justify-center;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+}
+@media (min-width: 640px) {
+  .header-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 .header-icon::before {
   content: '';
@@ -139,8 +145,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background: var(--kk-gradient);
   -webkit-mask: var(--icon-mask);
   mask: var(--icon-mask);
@@ -150,6 +156,12 @@ body {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
+}
+@media (min-width: 640px) {
+  .header-icon::before {
+    width: 24px;
+    height: 24px;
+  }
 }
 .header-icon:hover {
   filter: brightness(1.2);

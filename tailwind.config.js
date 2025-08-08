@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',
+      },
       colors: {
         bg: '#0b0e12',
         surface: '#0f141a',
