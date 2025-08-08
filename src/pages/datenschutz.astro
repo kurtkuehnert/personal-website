@@ -1,13 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LegalPage from "../components/LegalPage.astro";
 ---
 
-<Layout lang="de">
-  <section class="container py-10 legal">
-    <h1>Datenschutzerklärung</h1>
-    <p>Verantwortlich: Kurt Kühnert, Bahnhofstraße 13, 08118 Hartenstein, Deutschland</p>
-    <p>Kontakt: <a class="link" href="mailto:kurt@kuehnert.dev">kurt@kuehnert.dev</a>, <a class="link" href="tel:+49-172-7639811">+49 172 7639811</a></p>
-    <h2>2. Hosting über GitHub Pages</h2>
-    <p>Beim Zugriff werden technische Zugriffsdaten (IP, Browser, OS, Zeit) von GitHub verarbeitet. Details: <a class="link" href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noreferrer">GitHub Privacy Statement</a>.</p>
-  </section>
-</Layout>
+<BaseLayout lang="de" title="Datenschutzerklärung — Kurt Kühnert">
+  <LegalPage lang="de" type="privacy" />
+</BaseLayout>

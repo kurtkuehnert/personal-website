@@ -1,0 +1,128 @@
+---
+export interface Props {
+  images: Array<{
+    src: string;
+    alt: string;
+    title?: string;
+  }>;
+  id: string;
+}
+
+const { images, id } = Astro.props;
+---
+
+<div class="carousel" id={id}>
+  <div class="carousel-container">
+    {images.map((image, index) => (
+      <div class="carousel-slide">
+        <img 
+          src={image.src} 
+          alt={image.alt} 
+          title={image.title || image.alt}
+          class="carousel-image"
+        />
+      </div>
+    ))}
+  </div>
+  
+  {images.length > 1 && (
+    <>
+      <button class="carousel-prev" aria-label="Previous">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+      <button class="carousel-next" aria-label="Next">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+        </svg>
+      </button>
+      
+      <div class="carousel-nav">
+        {images.map((_, index) => (
+          <button 
+            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+            aria-label={`Go to slide ${index + 1}`}
+            data-slide={index}
+          ></button>
+        ))}
+      </div>
+    </>
+  )}
+</div>
+
+<script>
+  function initCarousel(id: string) {
+    const carousel = document.getElementById(id);
+    const container = carousel?.querySelector('.carousel-container') as HTMLElement;
+    const slides = container?.children;
+    const dots = carousel?.querySelectorAll('.carousel-dot');
+    const prevBtn = carousel?.querySelector('.carousel-prev') as HTMLButtonElement;
+    const nextBtn = carousel?.querySelector('.carousel-next') as HTMLButtonElement;
+    let currentSlide = 0;
+    
+    if (!container || !slides || !dots) return;
+    
+    function updateSlide() {
+      container.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlide();
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide();
+    }
+    
+    function goToSlide(index: number) {
+      currentSlide = index;
+      updateSlide();
+    }
+    
+    // Add event listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', prevSlide);
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+  }
+  
+  // Initialize all carousels
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+      const id = carousel.id;
+      if (id) initCarousel(id);
+    });
+  });
+</script>
+
+<style>
+  .carousel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+</style>

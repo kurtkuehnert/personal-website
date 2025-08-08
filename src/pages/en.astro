@@ -1,34 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { content } from "../content/content";
-const C = content.en;
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomePage from "../components/HomePage.astro";
 ---
 
-<Layout lang="en">
-  <section class="container text-center py-24">
-    <h1 class="text-5xl sm:text-6xl font-bold tracking-tight">{C.hero.name}</h1>
-    <p class="text-muted mt-3 text-lg">{C.hero.tagline}</p>
-    <div class="mt-6 inline-flex gap-3">
-      <a class="btn btn-primary" href="mailto:kurt@kuehnert.dev">{C.hero.ctaContact}</a>
-      <a class="btn" href="#work">{C.hero.ctaProjects}</a>
-    </div>
-  </section>
-
-  <section id="work" class="container section">
-    <div class="card p-6">
-      <h2 class="heading-gradient text-2xl">Bevy Terrain</h2>
-      <p class="text-muted mt-2">Real‑world, large‑scale terrain rendering in Rust (Bevy). Focus on UDLOD and chunked clipmaps.</p>
-      <div class="mt-4">
-        <a class="link" href="https://github.com/kurtkuehnert/bevy_terrain" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="container section">
-    <div class="card p-6">
-      <h2 class="heading-gradient text-2xl">About</h2>
-      <p class="mt-2">{C.about.blurb}</p>
-    </div>
-  </section>
-</Layout>
+<BaseLayout lang="en">
+  <HomePage lang="en" />
+</BaseLayout>
 
